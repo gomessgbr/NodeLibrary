@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 const books = [];
 
-app.get("/obras/", (req, res) => {
+app.get("/obras", (req, res) => {
   return res.json(books);
 });
 
