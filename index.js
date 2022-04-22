@@ -14,11 +14,10 @@ app.post("/obras", (req, res) => {
   return res.json(books);
 });
 
-app.delete("/obras/:id", (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  //   books.splice(id,1)
-  console.log(books);
+app.delete("/obras/:index", (req, res) => {
+  const { index } = req.params;
+
+  console.log(index);
   return res.send();
 });
 
