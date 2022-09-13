@@ -4,7 +4,7 @@ app.use(express.json());
 
 const books = [];
 
-app.get("/obras", (req, res) => {
+app.get("/obras", (_, res) => {
   return res.json(books);
 });
 
@@ -20,6 +20,8 @@ app.delete("/obras/:index", (req, res) => {
   console.log(index);
   return res.send();
 });
+
+app.put("/obras/:id", (req, res) => {});
 
 // Todo
 /* - Terminar a rota delete
