@@ -11,7 +11,7 @@ app.get("/obras", (req, res) => {
 app.post("/obras", (req, res) => {
   const { id, titulo, editora, foto } = req.body;
   books.push(id, titulo, editora, foto);
-  return res.json(books);
+  return res.json("Criado com sucesso");
 });
 
 app.delete("/obras/:index", (req, res) => {
