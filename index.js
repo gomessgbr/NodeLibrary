@@ -26,7 +26,11 @@ app.delete("/obras/:id", (req, res) => {
   return res.send(newBooks);
 });
 
-app.put("/obras/:id", (req, res) => {});
+app.put("/obras/:id", (req, res) => {
+  const id = req.params.id;
+  if (id) {
+  }
+});
 
 // Todo
 /* - Terminar a rota delete
