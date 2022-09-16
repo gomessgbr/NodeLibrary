@@ -16,7 +16,7 @@ app.post("/obras", (req, res) => {
     encoding: "utf8",
   });
   // books[id] = { id, titulo, editora, foto };
-  console.log(books1);
+
   return res.status(200).json("Criado com sucesso");
 });
 
