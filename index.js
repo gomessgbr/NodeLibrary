@@ -20,13 +20,13 @@ app.post("/obras", (req, res) => {
   return res.status(200).json("Criado com sucesso");
 });
 
-// app.delete("/obras/:id", (req, res) => {
-//   const id = req.params.id;
-//   let newBooks = books.filter((item) => {
-//     if (!item[id]) {
-//       return item;
-//     }
-//   });
+app.delete("/obras/:id", (req, res) => {
+  const id = req.params.id;
+  let newBooks = books.filter((item) => {
+    if (!item[id]) {
+      return item;
+    }
+  });
 
 //   books = newBooks;
 //   return res.send(newBooks);
