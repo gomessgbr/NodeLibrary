@@ -16,6 +16,18 @@ let books1 = [
     editora: "testa",
     foto: "éotestas.png",
   },
+  {
+    id: 2,
+    titulo: "É o testas",
+    editora: "testa",
+    foto: "éotestas.png",
+  },
+  {
+    id: 3,
+    titulo: "É o testas",
+    editora: "testa",
+    foto: "éotestas.png",
+  },
 ];
 
 app.get("/obras", (_, res) => {
@@ -44,9 +56,18 @@ app.delete("/obras/:id", (req, res) => {
 
 app.put("/obras/:id", (req, res) => {
   const id = req.params.id;
+  const idNumber = Number(id);
   const { titulo, editora, foto } = req.body;
-  if (id) {
-  }
+  books1.map((item) => {
+    if (item.id === idNumber) {
+      item.titulo = titulo;
+      item.foto = foto;
+      item.editora = editora;
+    }
+    return;
+  });
+
+  return res.send(books1);
 });
 
 app.listen(3000);
