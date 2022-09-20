@@ -1,41 +1,52 @@
 const express = require("express");
-const fs = require("fs");
-const app = express();
-app.use(express.json());
-// const books = require("./books.json");
-const books1 = [];
 
-// app.get("/obras", (_, res) => {
-//   return res.json(books);
-// });
+const app = express();
+
+app.use(express.json());
+let books1 = [
+  {
+    id: 0,
+    titulo: "É o testas",
+    editora: "testa",
+    foto: "éotestas.png",
+  },
+  {
+    id: 1,
+    titulo: "É o testas",
+    editora: "testa",
+    foto: "éotestas.png",
+  },
+];
+
+app.get("/obras", (_, res) => {
+  return res.json(books1);
+});
 
 app.post("/obras", (req, res) => {
   const { id, titulo, editora, foto } = req.body;
   books1.push({ id: id, titulo: titulo, editora: editora, foto: foto });
-  fs.writeFileSync("./books.json", JSON.stringify(books1), {
-    encoding: "utf8",
-  });
-  // books[id] = { id, titulo, editora, foto };
 
   return res.status(200).json("Criado com sucesso");
 });
 
 app.delete("/obras/:id", (req, res) => {
   const id = req.params.id;
-  let newBooks = books.filter((item) => {
-    if (!item[id]) {
-      return item;
+  const idNumber = Number(id);
+  let newBooks = books1.filter((item) => {
+    if (item.id !== idNumber) {
+      return 1;
     }
   });
 
-//   books = newBooks;
-//   return res.send(newBooks);
-// });
+  books1 = newBooks;
+  return res.send(books1);
+});
 
-// app.put("/obras/:id", (req, res) => {
-//   const id = req.params.id;
-//   if (id) {
-//   }
-// });
+app.put("/obras/:id", (req, res) => {
+  const id = req.params.id;
+  const { titulo, editora, foto } = req.body;
+  if (id) {
+  }
+});
 
 app.listen(3000);
